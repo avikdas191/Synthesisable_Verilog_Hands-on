@@ -1,0 +1,83 @@
+MIF/HEX Update report for DE10_LITE_CLB7Sw
+Fri Dec 15 09:03:02 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. MIF/HEX Update Summary
+  3. MIF/HEX Update Processed Files
+  4. MIF/HEX Update Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; MIF/HEX Update Summary                                        ;
++-----------------------+---------------------------------------+
+; MIF/HEX Update Status ; Successful - Fri Dec 15 09:03:02 2023 ;
+; Revision Name         ; DE10_LITE_CLB7Sw                      ;
+; Top-level Entity Name ; AHBLITE_SYS                           ;
+; Family                ; MAX 10                                ;
+; Device                ; 10M50DAF484C7G                        ;
++-----------------------+---------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; MIF/HEX Update Processed Files                                                                                     ;
++--------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                          ;
++--------------------------------------------------------------------------------------------------------------------+
+; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/code.mif ;
++--------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------+
+; MIF/HEX Update Messages ;
++-------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime MIF/HEX Update
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Fri Dec 15 09:03:01 2023
+Info: Command: quartus_cdb DE10_LITE_CLB7Sw -c DE10_LITE_CLB7Sw --update_mif
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Warning (113031): 70 out of 256 addresses are reinitialized. The latest initialized data will replace the existing data. There are 70 warnings found, and 10 warnings are reported. File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/code.mif Line: 1
+    Warning (113030): Memory Initialization File address 0 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 13
+    Warning (113030): Memory Initialization File address 1 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 14
+    Warning (113030): Memory Initialization File address 2 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 15
+    Warning (113030): Memory Initialization File address 3 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 16
+    Warning (113030): Memory Initialization File address 4 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 17
+    Warning (113030): Memory Initialization File address 5 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 18
+    Warning (113030): Memory Initialization File address 6 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 19
+    Warning (113030): Memory Initialization File address 7 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 20
+    Warning (113030): Memory Initialization File address 8 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 21
+    Warning (113030): Memory Initialization File address 9 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/ Line: 22
+Info (39024): Processed the following Memory Initialization File(s)
+    Info (39025): Processed Memory Initialization File C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/code.mif File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab8/Lab8_quartus/code.mif Line: 0
+Info: Quartus Prime MIF/HEX Update was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 4739 megabytes
+    Info: Processing ended: Fri Dec 15 09:03:02 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

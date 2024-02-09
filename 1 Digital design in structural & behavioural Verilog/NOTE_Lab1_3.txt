@@ -1,0 +1,34 @@
+always @(*)
+	if (Lab_1_2_completed) begin
+
+		copy Lab_1_2 folder inside the same Lab1 folder
+		rename the copied folder to lab1_3
+		close all the open Quartus projects
+		double click on the DE10_Lite.qpf in Lab_1_3 folder
+
+		if (Lab_1_3 completed)
+			delete this file (NOTE.txt) to avoid confusion later
+		else
+			keep working on the Lab_1_3
+		end
+
+	else
+		keep working on the Lab_1_2
+
+	end
+
+//=========== amendments for the Lab_1_3 ========================
+
+// all_your_HDL_code BEGIN
+
+	// keep the wire declarations for wire_1 and wire_2
+	
+	// replace each line of structural code (describing a gate) 
+	// with a line of behavioural code (driving a wire or output port)
+	
+	// two lines for driving wire_1 and wire_2 (DO NOT FORGET USING reduction operators !)
+
+	// three lines to drive output ports HEX0[3], HEX3[0], HEX5[7] 
+
+
+// END of all_your_HDL_code

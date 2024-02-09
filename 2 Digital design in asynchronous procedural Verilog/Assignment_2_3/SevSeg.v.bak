@@ -1,0 +1,8 @@
+module SevSeg(
+	input  wire [3:0] HEX_2_disp,
+	output wire [7:0] segments
+);
+
+
+
+endmodule

@@ -1,0 +1,18 @@
+Fitter Status : Successful - Sat Dec 23 11:25:19 2023
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : DE10_LITE_CLB7Sw
+Top-level Entity Name : AHBLITE_SYS
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 4,003 / 49,760 ( 8 % )
+    Total combinational functions : 3,863 / 49,760 ( 8 % )
+    Dedicated logic registers : 850 / 49,760 ( 2 % )
+Total registers : 850
+Total pins : 25 / 360 ( 7 % )
+Total virtual pins : 0
+Total memory bits : 8,192 / 1,677,312 ( < 1 % )
+Embedded Multiplier 9-bit elements : 0 / 288 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

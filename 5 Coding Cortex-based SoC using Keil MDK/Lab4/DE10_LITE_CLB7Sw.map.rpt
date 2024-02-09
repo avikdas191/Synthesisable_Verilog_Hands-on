@@ -1,0 +1,833 @@
+Analysis & Synthesis report for DE10_LITE_CLB7Sw
+Sat Dec 23 11:24:59 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component|altsyncram_sep1:auto_generated
+ 15. Parameter Settings for User Entity Instance: ALTCLKCTRL:BUFF_CLK
+ 16. Parameter Settings for User Entity Instance: AHB2MEM:uAHB2MEM
+ 17. Parameter Settings for User Entity Instance: AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component
+ 18. altsyncram Parameter Settings by Entity Instance
+ 19. Port Connectivity Checks: "AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst"
+ 20. Port Connectivity Checks: "AHBMUX:uAHBMUX"
+ 21. Port Connectivity Checks: "AHBDCD:uAHBDCD"
+ 22. Port Connectivity Checks: "CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic"
+ 23. Port Connectivity Checks: "CORTEXM0DS:u_cortexm0ds"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Dec 23 11:24:58 2023       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; DE10_LITE_CLB7Sw                            ;
+; Top-level Entity Name              ; AHBLITE_SYS                                 ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 4,371                                       ;
+;     Total combinational functions  ; 3,862                                       ;
+;     Dedicated logic registers      ; 850                                         ;
+; Total registers                    ; 850                                         ;
+; Total pins                         ; 25                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 8,192                                       ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; AHBLITE_SYS        ; DE10_LITE_CLB7Sw   ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                             ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                                                     ; Library ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
+; CortexM0-DS/cortexm0ds_logic.v   ; yes             ; User Verilog HDL File            ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/cortexm0ds_logic.v ;         ;
+; AHB_BUS/AHBMUX.v                 ; yes             ; User Verilog HDL File            ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BUS/AHBMUX.v               ;         ;
+; AHB_BUS/AHBDCD.v                 ; yes             ; User Verilog HDL File            ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BUS/AHBDCD.v               ;         ;
+; CortexM0-DS/CORTEXM0DS.v         ; yes             ; User Verilog HDL File            ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v       ;         ;
+; AHB_LED/AHB2LED.v                ; yes             ; User Verilog HDL File            ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_LED/AHB2LED.v              ;         ;
+; AHB_BRAM/AHB2MEM_BRAM.v          ; yes             ; User Verilog HDL File            ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BRAM/AHB2MEM_BRAM.v        ;         ;
+; AHB_BRAM/megaRAM.v               ; yes             ; User Wizard-Generated File       ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BRAM/megaRAM.v             ;         ;
+; code.mif                         ; yes             ; User Memory Initialization File  ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/code.mif                       ;         ;
+; AHBLITE_SYS.sv                   ; yes             ; User SystemVerilog HDL File      ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv                 ;         ;
+; altclkctrl.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altclkctrl.tdf                                                            ;         ;
+; db/altclkctrl_4pb.tdf            ; yes             ; Auto-Generated Megafunction      ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/db/altclkctrl_4pb.tdf          ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                                            ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                     ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                                               ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                                            ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                            ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                             ;         ;
+; altrom.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                                                ;         ;
+; altram.inc                       ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                                ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                     ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                              ;         ;
+; db/altsyncram_sep1.tdf           ; yes             ; Auto-Generated Megafunction      ; C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/db/altsyncram_sep1.tdf         ;         ;
++----------------------------------+-----------------+----------------------------------+----------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                            ;
++---------------------------------------------+----------------------------------------------------------+
+; Resource                                    ; Usage                                                    ;
++---------------------------------------------+----------------------------------------------------------+
+; Estimated Total logic elements              ; 4,371                                                    ;
+;                                             ;                                                          ;
+; Total combinational functions               ; 3862                                                     ;
+; Logic element usage by number of LUT inputs ;                                                          ;
+;     -- 4 input functions                    ; 2961                                                     ;
+;     -- 3 input functions                    ; 619                                                      ;
+;     -- <=2 input functions                  ; 282                                                      ;
+;                                             ;                                                          ;
+; Logic elements by mode                      ;                                                          ;
+;     -- normal mode                          ; 3741                                                     ;
+;     -- arithmetic mode                      ; 121                                                      ;
+;                                             ;                                                          ;
+; Total registers                             ; 850                                                      ;
+;     -- Dedicated logic registers            ; 850                                                      ;
+;     -- I/O registers                        ; 0                                                        ;
+;                                             ;                                                          ;
+; I/O pins                                    ; 25                                                       ;
+; Total memory bits                           ; 8192                                                     ;
+;                                             ;                                                          ;
+; Embedded Multiplier 9-bit elements          ; 0                                                        ;
+;                                             ;                                                          ;
+; Maximum fan-out node                        ; altclkctrl:BUFF_CLK|altclkctrl_4pb:auto_generated|outclk ;
+; Maximum fan-out                             ; 882                                                      ;
+; Total fan-out                               ; 18088                                                    ;
+; Average fan-out                             ; 3.77                                                     ;
++---------------------------------------------+----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                     ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                               ; Entity Name      ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; |AHBLITE_SYS                                 ; 3862 (0)            ; 850 (0)                   ; 8192        ; 0          ; 0            ; 0       ; 0         ; 25   ; 0            ; 0          ; |AHBLITE_SYS                                                                                                      ; AHBLITE_SYS      ; work         ;
+;    |AHB2LED:uAHB2LED|                        ; 7 (7)               ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|AHB2LED:uAHB2LED                                                                                     ; AHB2LED          ; work         ;
+;    |AHB2MEM:uAHB2MEM|                        ; 66 (66)             ; 13 (13)                   ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM                                                                                     ; AHB2MEM          ; work         ;
+;       |megaRAM:megaRAM_inst|                 ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst                                                                ; megaRAM          ; work         ;
+;          |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component                                ; altsyncram       ; work         ;
+;             |altsyncram_sep1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 8192        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component|altsyncram_sep1:auto_generated ; altsyncram_sep1  ; work         ;
+;    |AHBDCD:uAHBDCD|                          ; 14 (14)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|AHBDCD:uAHBDCD                                                                                       ; AHBDCD           ; work         ;
+;    |AHBMUX:uAHBMUX|                          ; 37 (37)             ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|AHBMUX:uAHBMUX                                                                                       ; AHBMUX           ; work         ;
+;    |CORTEXM0DS:u_cortexm0ds|                 ; 3738 (0)            ; 822 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|CORTEXM0DS:u_cortexm0ds                                                                              ; CORTEXM0DS       ; work         ;
+;       |cortexm0ds_logic:u_logic|             ; 3738 (3738)         ; 822 (822)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic                                                     ; cortexm0ds_logic ; work         ;
+;    |altclkctrl:BUFF_CLK|                     ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|altclkctrl:BUFF_CLK                                                                                  ; altclkctrl       ; work         ;
+;       |altclkctrl_4pb:auto_generated|        ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |AHBLITE_SYS|altclkctrl:BUFF_CLK|altclkctrl_4pb:auto_generated                                                    ; altclkctrl_4pb   ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                        ;
++-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------+
+; Name                                                                                                            ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF      ;
++-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------+
+; AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component|altsyncram_sep1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 256          ; 32           ; 256          ; 32           ; 8192 ; code.mif ;
++-----------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                   ;
++--------+--------------+---------+--------------+--------------+----------------------------------------------------+--------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                    ; IP Include File    ;
++--------+--------------+---------+--------------+--------------+----------------------------------------------------+--------------------+
+; Altera ; RAM: 2-PORT  ; 18.1    ; N/A          ; N/A          ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst ; AHB_BRAM/megaRAM.v ;
++--------+--------------+---------+--------------+--------------+----------------------------------------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                               ;
++---------------------------------------------------------+----------------------------------------+
+; Register name                                           ; Reason for Removal                     ;
++---------------------------------------------------------+----------------------------------------+
+; AHB2MEM:uAHB2MEM|APhase_HSIZE[2]                        ; Stuck at GND due to stuck port data_in ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|E9c3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Yvb3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Qsb3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Rnb3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|W5c3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|O2c3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Gzb3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|C7f3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Q0f3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Qnn2z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Jje3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|W8r2z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Etq2z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Q4h3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|I6h3z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Mvi2z4 ; Lost fanout                            ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Y9t2z4 ; Merged with AHB2LED:uAHB2LED|rHWRITE   ;
+; Total Number of Removed Registers = 18                  ;                                        ;
++---------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 850   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 850   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 651   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------+
+; Inverted Register Statistics                                      ;
++---------------------------------------------------------+---------+
+; Inverted Register                                       ; Fan out ;
++---------------------------------------------------------+---------+
+; AHB2LED:uAHB2LED|rLED[0]                                ; 1       ;
+; AHB2LED:uAHB2LED|rLED[1]                                ; 1       ;
+; AHB2LED:uAHB2LED|rLED[2]                                ; 1       ;
+; AHB2LED:uAHB2LED|rLED[3]                                ; 1       ;
+; AHB2LED:uAHB2LED|rLED[4]                                ; 1       ;
+; AHB2LED:uAHB2LED|rLED[5]                                ; 1       ;
+; AHB2LED:uAHB2LED|rLED[6]                                ; 1       ;
+; AHB2LED:uAHB2LED|rLED[7]                                ; 1       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|O5t2z4 ; 135     ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|H9i2z4 ; 66      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|R1w2z4 ; 29      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|G0w2z4 ; 24      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Qdj2z4 ; 29      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|U2x2z4 ; 62      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Hyy2z4 ; 48      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Nqy2z4 ; 49      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Xly2z4 ; 18      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Lny2z4 ; 20      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Zoy2z4 ; 40      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Svk2z4 ; 19      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Yaz2z4 ; 18      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|H3d3z4 ; 18      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|T1d3z4 ; 19      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Rvu2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ejm2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Unm2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Gmm2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ek03z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Hq23z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Knz2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Iwp2z4 ; 6       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Yg13z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Imt2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Rr73z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Skm2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ii63z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Z853z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Qz33z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ruj2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ukt2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Duu2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Dtj2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ug63z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Dq73z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Txj2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Fwj2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Qi03z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|U4z2z4 ; 5       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Kf13z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Wlz2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Cy33z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|To23z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|L753z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Gju2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Po83z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Psv2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Mhn2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Vu93z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Yfn2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ajn2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Gf73z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|M1j2z4 ; 63      ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Cmn2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Okn2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Q713z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Jw93z4 ; 5       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ow43z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Wa03z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Wd23z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Fn33z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|X563z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Y1u2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|H783z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Hbv2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|H2m2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Yb93z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|T0m2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|V3m2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Yx63z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|X6m2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|J5m2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Gf43z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ow13z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Xx93z4 ; 5       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|X533z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Bv03z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Hyz2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Po53z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|G4r2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|K0u2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|T9v2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|S2r2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Kw63z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|T583z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ka93z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|E1r2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|I7r2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|U5r2z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Nt03z4 ; 2       ;
+; CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic|Ovc3z4 ; 5       ;
+; Total number of inverted registers = 712*               ;         ;
++---------------------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+; 16:1               ; 16 bits   ; 160 LEs       ; 48 LEs               ; 112 LEs                ; No         ; |AHBLITE_SYS|AHBMUX:uAHBMUX|Mux6    ;
+; 16:1               ; 10 bits   ; 100 LEs       ; 40 LEs               ; 60 LEs                 ; No         ; |AHBLITE_SYS|AHBMUX:uAHBMUX|Mux28   ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM|Mux17 ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM|Mux9  ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM|Mux7  ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; No         ; |AHBLITE_SYS|AHB2MEM:uAHB2MEM|Mux31 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component|altsyncram_sep1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                            ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                             ;
++---------------------------------+--------------------+------+---------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALTCLKCTRL:BUFF_CLK      ;
++--------------------------------------------+----------------+---------+
+; Parameter Name                             ; Value          ; Type    ;
++--------------------------------------------+----------------+---------+
+; CLOCK_TYPE                                 ; AUTO           ; Untyped ;
+; ENA_REGISTER_MODE                          ; falling edge   ; Untyped ;
+; IMPLEMENT_IN_LES                           ; OFF            ; Untyped ;
+; NUMBER_OF_CLOCKS                           ; 4              ; Untyped ;
+; USE_GLITCH_FREE_SWITCH_OVER_IMPLEMENTATION ; OFF            ; Untyped ;
+; WIDTH_CLKSELECT                            ; 2              ; Untyped ;
+; CBXI_PARAMETER                             ; altclkctrl_4pb ; Untyped ;
++--------------------------------------------+----------------+---------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AHB2MEM:uAHB2MEM ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; MEMWIDTH       ; 10    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+--------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                   ;
++------------------------------------+----------------------+--------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                             ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                           ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                           ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                         ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                                ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                         ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                                         ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                                         ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                ;
+; WIDTH_B                            ; 32                   ; Signed Integer                                         ;
+; WIDTHAD_B                          ; 8                    ; Signed Integer                                         ;
+; NUMWORDS_B                         ; 256                  ; Signed Integer                                         ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                                ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                         ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                ;
+; INIT_FILE                          ; code.mif             ; Untyped                                                ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                                                ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                                ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                                                ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                ;
+; DEVICE_FAMILY                      ; MAX 10               ; Untyped                                                ;
+; CBXI_PARAMETER                     ; altsyncram_sep1      ; Untyped                                                ;
++------------------------------------+----------------------+--------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                  ;
++-------------------------------------------+-----------------------------------------------------------------------+
+; Name                                      ; Value                                                                 ;
++-------------------------------------------+-----------------------------------------------------------------------+
+; Number of entity instances                ; 1                                                                     ;
+; Entity Instance                           ; AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                             ;
+;     -- WIDTH_A                            ; 32                                                                    ;
+;     -- NUMWORDS_A                         ; 256                                                                   ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                          ;
+;     -- WIDTH_B                            ; 32                                                                    ;
+;     -- NUMWORDS_B                         ; 256                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                             ;
++-------------------------------------------+-----------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst"                                                                                                                                               ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; rdaddress ; Input ; Warning  ; Input port expression (9 bits) is wider than the input port (8 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; wraddress ; Input ; Warning  ; Input port expression (9 bits) is wider than the input port (8 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++-----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Port Connectivity Checks: "AHBMUX:uAHBMUX"                       ;
++----------------------+-------+----------+------------------------+
+; Port                 ; Type  ; Severity ; Details                ;
++----------------------+-------+----------+------------------------+
+; HRDATA_S2            ; Input ; Info     ; Explicitly unconnected ;
+; HRDATA_S3            ; Input ; Info     ; Explicitly unconnected ;
+; HRDATA_S4            ; Input ; Info     ; Explicitly unconnected ;
+; HRDATA_S5            ; Input ; Info     ; Explicitly unconnected ;
+; HRDATA_S6            ; Input ; Info     ; Explicitly unconnected ;
+; HRDATA_S7            ; Input ; Info     ; Explicitly unconnected ;
+; HRDATA_S8            ; Input ; Info     ; Explicitly unconnected ;
+; HRDATA_S9            ; Input ; Info     ; Explicitly unconnected ;
+; HRDATA_NOMAP[31..30] ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[28..25] ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[19..18] ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[16..15] ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[13..9]  ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[7..5]   ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[3..0]   ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[29]     ; Input ; Info     ; Stuck at GND           ;
+; HRDATA_NOMAP[24]     ; Input ; Info     ; Stuck at GND           ;
+; HRDATA_NOMAP[23]     ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[22]     ; Input ; Info     ; Stuck at GND           ;
+; HRDATA_NOMAP[21]     ; Input ; Info     ; Stuck at VCC           ;
+; HRDATA_NOMAP[20]     ; Input ; Info     ; Stuck at GND           ;
+; HRDATA_NOMAP[17]     ; Input ; Info     ; Stuck at GND           ;
+; HRDATA_NOMAP[14]     ; Input ; Info     ; Stuck at GND           ;
+; HRDATA_NOMAP[8]      ; Input ; Info     ; Stuck at GND           ;
+; HRDATA_NOMAP[4]      ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_S2         ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_S3         ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_S4         ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_S5         ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_S6         ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_S7         ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_S8         ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_S9         ; Input ; Info     ; Stuck at GND           ;
+; HREADYOUT_NOMAP      ; Input ; Info     ; Stuck at GND           ;
++----------------------+-------+----------+------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AHBDCD:uAHBDCD"                                                                           ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; HSEL_S2    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HSEL_S3    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HSEL_S4    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HSEL_S5    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HSEL_S6    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HSEL_S7    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HSEL_S8    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HSEL_S9    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HSEL_NOMAP ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic"                                            ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; vis_r0_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r1_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r2_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r3_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r4_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r5_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r6_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r7_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r8_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r9_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r10_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r11_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r12_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_msp_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_psp_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_r14_o     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_pc_o      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_apsr_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_tbit_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_ipsr_o    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_control_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; vis_primask_o ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CORTEXM0DS:u_cortexm0ds"                                                                   ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; NMI         ; Input  ; Info     ; Stuck at GND                                                                        ;
+; IRQ[15..1]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; TXEV        ; Output ; Info     ; Explicitly unconnected                                                              ;
+; RXEV        ; Input  ; Info     ; Stuck at GND                                                                        ;
+; SYSRESETREQ ; Output ; Info     ; Explicitly unconnected                                                              ;
+; SLEEPING    ; Output ; Info     ; Explicitly unconnected                                                              ;
+; HBURST      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; HMASTLOCK   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; HPROT       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; HRESP       ; Input  ; Info     ; Stuck at GND                                                                        ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 25                          ;
+; cycloneiii_clkctrl    ; 1                           ;
+; cycloneiii_ff         ; 850                         ;
+;     CLR               ; 199                         ;
+;     ENA CLR           ; 651                         ;
+; cycloneiii_lcell_comb ; 3871                        ;
+;     arith             ; 121                         ;
+;         2 data inputs ; 78                          ;
+;         3 data inputs ; 43                          ;
+;     normal            ; 3750                        ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 27                          ;
+;         2 data inputs ; 184                         ;
+;         3 data inputs ; 576                         ;
+;         4 data inputs ; 2961                        ;
+; cycloneiii_ram_block  ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 28.00                       ;
+; Average LUT depth     ; 13.67                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:09     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sat Dec 23 11:24:38 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_LITE_CLB7Sw -c DE10_LITE_CLB7Sw
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file cortexm0-ds/cortexm0ds_logic.v
+    Info (12023): Found entity 1: cortexm0ds_logic File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/cortexm0ds_logic.v Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file ahb_bus/ahbmux.v
+    Info (12023): Found entity 1: AHBMUX File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BUS/AHBMUX.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file ahb_bus/ahbdcd.v
+    Info (12023): Found entity 1: AHBDCD File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BUS/AHBDCD.v Line: 38
+Info (12021): Found 1 design units, including 1 entities, in source file cortexm0-ds/cortexm0ds.v
+    Info (12023): Found entity 1: CORTEXM0DS File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file ahb_led/ahb2led.v
+    Info (12023): Found entity 1: AHB2LED File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_LED/AHB2LED.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ahb_bram/ahb2mem_bram.v
+    Info (12023): Found entity 1: AHB2MEM File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BRAM/AHB2MEM_BRAM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ahb_bram/megaram.v
+    Info (12023): Found entity 1: megaRAM File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BRAM/megaRAM.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file ahblite_sys.sv
+    Info (12023): Found entity 1: AHBLITE_SYS File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 37
+Info (12127): Elaborating entity "AHBLITE_SYS" for the top level hierarchy
+Info (12128): Elaborating entity "ALTCLKCTRL" for hierarchy "ALTCLKCTRL:BUFF_CLK" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 111
+Info (12130): Elaborated megafunction instantiation "ALTCLKCTRL:BUFF_CLK" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 111
+Info (12021): Found 1 design units, including 1 entities, in source file db/altclkctrl_4pb.tdf
+    Info (12023): Found entity 1: altclkctrl_4pb File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/db/altclkctrl_4pb.tdf Line: 25
+Info (12128): Elaborating entity "altclkctrl_4pb" for hierarchy "ALTCLKCTRL:BUFF_CLK|altclkctrl_4pb:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altclkctrl.tdf Line: 50
+Info (12128): Elaborating entity "CORTEXM0DS" for hierarchy "CORTEXM0DS:u_cortexm0ds" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 142
+Warning (10036): Verilog HDL or VHDL warning at CORTEXM0DS.v(73): object "cm0_msp" assigned a value but never read File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v Line: 73
+Warning (10036): Verilog HDL or VHDL warning at CORTEXM0DS.v(74): object "cm0_psp" assigned a value but never read File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v Line: 74
+Warning (10036): Verilog HDL or VHDL warning at CORTEXM0DS.v(76): object "cm0_pc" assigned a value but never read File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v Line: 76
+Warning (10036): Verilog HDL or VHDL warning at CORTEXM0DS.v(77): object "cm0_xpsr" assigned a value but never read File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v Line: 77
+Warning (10036): Verilog HDL or VHDL warning at CORTEXM0DS.v(78): object "cm0_control" assigned a value but never read File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v Line: 78
+Warning (10036): Verilog HDL or VHDL warning at CORTEXM0DS.v(79): object "cm0_primask" assigned a value but never read File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v Line: 79
+Info (12128): Elaborating entity "cortexm0ds_logic" for hierarchy "CORTEXM0DS:u_cortexm0ds|cortexm0ds_logic:u_logic" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/CORTEXM0DS.v Line: 141
+Warning (10036): Verilog HDL or VHDL warning at cortexm0ds_logic.v(1130): object "N4i2z4" assigned a value but never read File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/cortexm0ds_logic.v Line: 1130
+Warning (10036): Verilog HDL or VHDL warning at cortexm0ds_logic.v(1130): object "L5i2z4" assigned a value but never read File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/CortexM0-DS/cortexm0ds_logic.v Line: 1130
+Info (12128): Elaborating entity "AHBDCD" for hierarchy "AHBDCD:uAHBDCD" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 163
+Info (12128): Elaborating entity "AHBMUX" for hierarchy "AHBMUX:uAHBMUX" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 200
+Info (12128): Elaborating entity "AHB2MEM" for hierarchy "AHB2MEM:uAHB2MEM" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 225
+Info (12128): Elaborating entity "megaRAM" for hierarchy "AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BRAM/AHB2MEM_BRAM.v Line: 79
+Info (12128): Elaborating entity "altsyncram" for hierarchy "AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BRAM/megaRAM.v Line: 88
+Info (12130): Elaborated megafunction instantiation "AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BRAM/megaRAM.v Line: 88
+Info (12133): Instantiated megafunction "AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_BRAM/megaRAM.v Line: 88
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "init_file" = "code.mif"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "numwords_b" = "256"
+    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "widthad_b" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_sep1.tdf
+    Info (12023): Found entity 1: altsyncram_sep1 File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/db/altsyncram_sep1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_sep1" for hierarchy "AHB2MEM:uAHB2MEM|megaRAM:megaRAM_inst|altsyncram:altsyncram_component|altsyncram_sep1:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (113031): 61 out of 256 addresses are reinitialized. The latest initialized data will replace the existing data. There are 61 warnings found, and 10 warnings are reported. File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/code.mif Line: 1
+    Warning (113030): Memory Initialization File address 0 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 13
+    Warning (113030): Memory Initialization File address 1 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 14
+    Warning (113030): Memory Initialization File address 2 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 15
+    Warning (113030): Memory Initialization File address 3 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 16
+    Warning (113030): Memory Initialization File address 4 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 17
+    Warning (113030): Memory Initialization File address 5 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 18
+    Warning (113030): Memory Initialization File address 6 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 19
+    Warning (113030): Memory Initialization File address 7 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 20
+    Warning (113030): Memory Initialization File address 8 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 21
+    Warning (113030): Memory Initialization File address 9 is reinitialized File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/ Line: 22
+Info (12128): Elaborating entity "AHB2LED" for hierarchy "AHB2LED:uAHB2LED" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 249
+Warning (12010): Port "inclk" on the entity instantiation of "BUFF_CLK" is connected to a signal of width 1. The formal width of the signal in the module is 4.  The extra bits will be driven by GND. File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 111
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHB_LED/AHB2LED.v Line: 61
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 46
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "ADC_CLK_10" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 40
+    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: C:/Users/avikd/OneDrive - Sheffield Hallam University/Desktop/. System on Chips/Lab_SoC/Lab5/Lab4/AHBLITE_SYS.sv Line: 42
+Info (21057): Implemented 4520 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 4462 logic cells
+    Info (21064): Implemented 32 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
+    Info: Peak virtual memory: 4867 megabytes
+    Info: Processing ended: Sat Dec 23 11:24:59 2023
+    Info: Elapsed time: 00:00:21
+    Info: Total CPU time (on all processors): 00:00:18
+
+

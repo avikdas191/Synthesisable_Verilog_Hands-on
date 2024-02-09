@@ -1,0 +1,81 @@
+module AHB2MEM
+#(parameter MEMWIDTH = 10 )	// address bus width
+(
+	//AHBLITE INTERFACE
+		//Slave Select Signals
+			input wire HSEL,
+		//Global Signal
+			input wire HCLK,
+			input wire HRESETn,
+		//Address, Control & Write Data
+			input wire HREADY,
+			input wire [31:0] HADDR,
+			input wire [1:0] HTRANS,
+			input wire HWRITE,
+			input wire [2:0] HSIZE,
+			
+			input wire [31:0] HWDATA,
+		// Transfer Response & Read Data
+			output wire HREADYOUT,
+			output wire [31:0] HRDATA
+);
+
+  assign HREADYOUT = 1'b1; // making memory always ready; wait states are required for slow memories
+
+//// Registers to store Adress Phase Signals
+  reg APhase_wren;
+  reg [31:0] APhase_HADDR;
+  reg [2:0] APhase_HSIZE;
+
+//// Sample the Address Phase & process HRESETn    
+  always @(posedge HCLK or negedge HRESETn)
+	  begin
+		 if(!HRESETn)
+			 begin
+				APhase_wren <= 1'b0;
+				APhase_HADDR <= 32'h0;
+				APhase_HSIZE <= 3'b000;
+			 end
+		 else if(HREADY)
+			 begin
+				APhase_wren <= HWRITE & HSEL & HTRANS[1];
+				APhase_HADDR <= HADDR;
+				APhase_HSIZE <= HSIZE;
+			 end
+	  end
+	  
+
+// processing writes at the 2nd clock
+	wire [31:0] wr_b, wr_hw;
+// combinational logic between the read port and write port for APhase_HADDR
+// put the byte to be written to the right place, and leave the other bytes intact
+	assign wr_b[31:24] = (APhase_HADDR[1:0] == 2'b11) ? HWDATA[7:0] : HRDATA[31:24];
+	assign wr_b[23:16] = (APhase_HADDR[1:0] == 2'b10) ? HWDATA[7:0] : HRDATA[23:16];
+	assign wr_b[15:8]  = (APhase_HADDR[1:0] == 2'b01) ? HWDATA[7:0] : HRDATA[15:8];
+	assign wr_b[7:0]   = (APhase_HADDR[1:0] == 2'b00) ? HWDATA[7:0] : HRDATA[7:0];
+// put the half-word to be written to the right place, and leave the other half-word intact
+	assign wr_hw[31:16] = (APhase_HADDR[1] == 1'b1) ? HWDATA[15:0] : HRDATA[31:16];
+	assign wr_hw[15:0]  = (APhase_HADDR[1] == 1'b0) ? HWDATA[15:0] : HRDATA[15:0];	
+// select the correct word to write to the write port	
+	reg [31:0] wr_data; // reg is required for CASE
+	always @(*) begin
+		case (APhase_HSIZE)
+			3'b000: wr_data = wr_b;  // 8b datum
+			3'b001: wr_data = wr_hw; // 16b datum
+			3'b010: wr_data = HWDATA; // 32b datum - no need to process
+			default: wr_data = 32'h0; // any bigger sizes should not be used by the bus master
+		endcase
+	end
+
+
+ //wizzard for the two port RAM (one READ, one WRITE) with initialisation
+	megaRAM	megaRAM_inst	(
+		.clock ( HCLK ),										// system clock
+		.data ( wr_data ), 									// 32b datum to be written via the WRITE port
+		.rdaddress ( HADDR[MEMWIDTH:2] ),				// address for the READ port
+		.wraddress ( APhase_HADDR[MEMWIDTH:2] ),		// address for the WRITE port
+		.wren ( APhase_wren ), 								// 1'b0 never for ROM
+		.q ( HRDATA )											// 32b datum from the READ port goes straight to the module's output port
+	);	
+
+endmodule
